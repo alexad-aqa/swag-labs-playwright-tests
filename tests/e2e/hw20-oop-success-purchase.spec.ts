@@ -35,13 +35,14 @@ test.describe('hw20: Swag Labs E2E', { tag: '@hw20:oop' }, () => {
     const { priceOnInventory, titleOnInventory } =
       await test.step(`${stepNum++}. Product Item added into Cart on Inventory Page`, async () => {
         const titleOnInventory = 'Sauce Labs Backpack';
-        //TODO: titles should not be hardcoded
+        //TODO: titles to not be hardcoded
 
         await inventoryPage.inventoryTile.addToCartByTitle(titleOnInventory);
-        // TODO: to product count to be dynamic on add
+        // TODO: product count to be dynamic on add
         const priceOnInventory =
           await inventoryPage.inventoryTile.getPriceByTitle(titleOnInventory);
-        await inventoryPage.verifyRemoveButtonVisible();
+        await inventoryPage.verifyRemoveButtonVisible(titleOnInventory);
+        await inventoryPage.verifyAddToCartBtnNotVisible(titleOnInventory);
         await inventoryPage.verifyCartCountBadge(1);
 
         return { priceOnInventory, titleOnInventory };

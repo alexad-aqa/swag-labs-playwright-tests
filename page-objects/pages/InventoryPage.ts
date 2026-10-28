@@ -20,10 +20,22 @@ export class InventoryPage extends BasePage {
   }
 
   async verifyAddToCartBtnNotVisible(title) {
-    await expect(this.inventoryTile.addToCartButton).toBeHidden();
+    const inventoryItem = this.inventoryTile.inventoryList.filter({
+      hasText: title,
+    });
+    const specificAddToCartBtn = inventoryItem.locator(
+      this.inventoryTile.addToCartButton,
+    );
+    await expect(specificAddToCartBtn).toBeHidden();
   }
 
-  async verifyRemoveButtonVisible() {
-    await expect(this.inventoryTile.removeButton).toBeVisible();
+  async verifyRemoveButtonVisible(title) {
+    const inventoryItem = this.inventoryTile.inventoryList.filter({
+      hasText: title,
+    });
+    const specificRemoveBtn = inventoryItem.locator(
+      this.inventoryTile.removeButton,
+    );
+    await expect(specificRemoveBtn).toBeVisible();
   }
 }
