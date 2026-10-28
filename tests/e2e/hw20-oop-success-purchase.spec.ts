@@ -41,7 +41,6 @@ test.describe('hw20: Swag Labs E2E', { tag: '@hw20:oop' }, () => {
         // TODO: to product count to be dynamic on add
         const priceOnInventory =
           await inventoryPage.inventoryTile.getPriceByTitle(titleOnInventory);
-        await inventoryPage.verifyAddToCartBtnNotVisible();
         await inventoryPage.verifyRemoveButtonVisible();
         await inventoryPage.verifyCartCountBadge(1);
 
@@ -52,8 +51,10 @@ test.describe('hw20: Swag Labs E2E', { tag: '@hw20:oop' }, () => {
       await inventoryPage.header.openCart();
       await cartPage.verifyIsOpened();
 
-      const titleOnCart = await cartPage.inventoryTile.getItemByTitle();
-      const priceOnCart = await cartPage.inventoryTile.getPriceByTitle();
+      const titleOnCart =
+        await cartPage.inventoryTile.getItemByTitle(titleOnInventory);
+      const priceOnCart =
+        await cartPage.inventoryTile.getPriceByTitle(titleOnInventory);
 
       expect(titleOnCart).toEqual(titleOnInventory);
       expect(priceOnCart).toEqual(priceOnInventory);

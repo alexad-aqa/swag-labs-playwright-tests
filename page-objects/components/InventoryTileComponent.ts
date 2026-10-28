@@ -2,10 +2,10 @@ import { Page } from '@playwright/test';
 
 export class InventoryTileComponent {
   protected readonly page;
-  protected readonly inventoryName;
-  protected readonly inventoryList;
-  protected readonly addToCartButton;
-  protected readonly removeButton;
+  readonly inventoryName;
+  readonly inventoryList;
+  readonly addToCartButton;
+  readonly removeButton;
   protected readonly itemPrice;
   protected expectedLocator;
 

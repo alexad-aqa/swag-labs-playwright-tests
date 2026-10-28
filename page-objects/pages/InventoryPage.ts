@@ -19,11 +19,11 @@ export class InventoryPage extends BasePage {
     await expect(this.header.cartCountBadge).toHaveText(String(count));
   }
 
-  async verifyAddToCartBtnNotVisible() {
-    expect(this.inventoryTile.addToCartButton).toBeHidden;
+  async verifyAddToCartBtnNotVisible(title) {
+    await expect(this.inventoryTile.addToCartButton).toBeHidden();
   }
 
   async verifyRemoveButtonVisible() {
-    expect(this.inventoryTile.removeButton).toBeVisible;
+    await expect(this.inventoryTile.removeButton).toBeVisible();
   }
 }
