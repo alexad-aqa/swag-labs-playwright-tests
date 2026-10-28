@@ -70,9 +70,13 @@ test.describe('hw20: Swag Labs E2E', { tag: '@hw20:oop' }, () => {
     await test.step(`${stepNum++}. Added Product shown on Checkout Step 2`, async () => {
       await checkoutOverviewPage.verifyIsOpened();
       const titleOnOverview =
-        await checkoutOverviewPage.inventoryTile.getItemByTitle();
+        await checkoutOverviewPage.inventoryTile.getItemByTitle(
+          titleOnInventory,
+        );
       const priceOnOverview =
-        await checkoutOverviewPage.inventoryTile.getPriceByTitle();
+        await checkoutOverviewPage.inventoryTile.getPriceByTitle(
+          titleOnInventory,
+        );
       expect(titleOnOverview).toEqual(titleOnInventory);
       expect(priceOnOverview).toEqual(priceOnInventory);
     });
