@@ -4,7 +4,7 @@ import { InventoryTileComponent } from '../components/InventoryTileComponent';
 
 export class InventoryPage extends BasePage {
   protected pagePath = 'inventory.html';
-  private readonly inventoryTile: InventoryTileComponent;
+  readonly inventoryTile: InventoryTileComponent;
 
   constructor(page: Page) {
     super(page);
