@@ -64,6 +64,7 @@ export const test = playwrightTest.extend<MyFixtures>({
     async ({ page, loginPage, userToLogin }, use) => {
       await loginPage.open();
       await loginPage.login(userToLogin.username, userToLogin.password);
+      console.log('Logged in via autoLogin Fixture');
 
       await use();
     },
