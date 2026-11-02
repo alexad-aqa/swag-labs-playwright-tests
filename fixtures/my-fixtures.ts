@@ -61,7 +61,7 @@ export const test = playwrightTest.extend<MyFixtures>({
   //* AUTO ACTIONS
 
   autoLogin: [
-    async ({ page, loginPage, inventoryPage, userToLogin }, use) => {
+    async ({ page, loginPage, userToLogin }, use) => {
       await loginPage.open();
       await loginPage.login(userToLogin.username, userToLogin.password);
 
@@ -77,8 +77,8 @@ export const test = playwrightTest.extend<MyFixtures>({
       const isLoggedIn = await basePage.header.leftSideMenuVisible();
 
       if (isLoggedIn) {
-        console.log('Logged out via autoLogout Fixture');
         await basePage.logout();
+        console.log('Logged out via autoLogout Fixture');
       }
     },
     { auto: true },
