@@ -18,7 +18,7 @@ export class HeaderComponent {
   }
 
   async leftSideMenuVisible() {
-    await this.menuIcon.isVisible();
+    return await this.menuIcon.isVisible();
   }
 
   async openLeftSideMenu() {

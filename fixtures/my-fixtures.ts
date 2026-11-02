@@ -74,9 +74,8 @@ export const test = playwrightTest.extend<MyFixtures>({
     async ({ page, basePage }, use) => {
       await use();
 
-      const isLoggedIn = await page
-        .getByRole('button', { name: 'Open Menu' })
-        .isVisible();
+      const isLoggedIn = await basePage.header.leftSideMenuVisible();
+
       if (isLoggedIn) {
         console.log('Logged out via autoLogout Fixture');
         await basePage.logout();
