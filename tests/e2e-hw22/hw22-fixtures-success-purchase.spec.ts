@@ -36,11 +36,10 @@ test.describe('hw22: Swag Labs E2E', { tag: '@hw22:fixtures' }, () => {
 
       expect(titleOnCart).toEqual(titleOnInventory);
       expect(priceOnCart).toEqual(priceOnInventory);
-
-      await cartPage.goToCheckoutInfo();
     });
 
     await test.step(`${stepNum++}. User Info Submitted on Checkout Step 1`, async () => {
+      await cartPage.goToCheckoutInfo();
       await checkoutInfoPage.verifyIsOpened();
       await checkoutInfoPage.submitUserInfo('standardUser');
     });

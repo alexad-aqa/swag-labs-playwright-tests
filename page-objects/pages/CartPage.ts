@@ -4,7 +4,7 @@ import { InventoryTileComponent } from '../components/InventoryTileComponent';
 
 export class CartPage extends BasePage {
   protected pagePath = 'cart.html';
-  private readonly inventoryTile: InventoryTileComponent;
+  readonly inventoryTile: InventoryTileComponent;
   private readonly checkoutButton;
   protected readonly expectedLocator;
 
