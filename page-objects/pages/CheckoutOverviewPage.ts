@@ -4,7 +4,7 @@ import { InventoryTileComponent } from '../components/InventoryTileComponent';
 
 export class CheckoutOverviewPage extends BasePage {
   protected pagePath = 'checkout-step-two.html';
-  private readonly inventoryTile: InventoryTileComponent;
+  readonly inventoryTile: InventoryTileComponent;
   protected readonly expectedLocator;
   private readonly itemTotalLabel;
   private readonly taxAmountLabel;
